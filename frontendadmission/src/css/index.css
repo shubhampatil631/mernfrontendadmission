@@ -1,0 +1,663 @@
+* {
+  font-family: "Quicksand", sans-serif;
+}
+.vd h1,
+.vb h2,
+.vb h3 {
+  color: white;
+}
+.overallform {
+  margin: 0% 5% 0% 5%;
+}
+.overallform1 {
+  margin: 0% 5% 0% 5%;
+}
+.overallform1 h3 {
+  color: white;
+}
+.overallform h2,
+i {
+  font-size: 120%;
+  font-weight: 600;
+  color: white;
+}
+.overallform h4 {
+  font-size: 120%;
+  font-weight: 500;
+} /*
+.App {
+    margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 0.5%;
+}*/
+.img1 {
+  border-radius: 8px;
+  width: 13%;
+  height: 260px;
+  margin-top: 2%;
+  margin-left: 43%;
+}
+/***********video****************/
+.fill {
+  /*border: 2px solid black;*/
+  height: 100vh;
+}
+.video-background {
+  position: relative;
+  margin-top: 0.31%;
+  width: 100%;
+  height: 100vh;
+}
+.content-overlay {
+  position: absolute;
+  top: 44.5%;
+  left: 50%;
+  width: 99.15%;
+  transform: translate(-50%, -50%);
+  color: white; /* Adjust text color as needed */
+}
+
+/* video background */
+#background-video1 {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Additional styling for page content 
+.vd h3,
+.vd h2 {
+  color: white;
+  font-family: Trebuchet MS;
+  font-weight: bold;
+  text-align: center;
+  
+}
+.vd h2 {
+  font-size: 3rem;
+  margin-top: 30vh;
+}
+
+.vd h3 {
+  font-size: 35px;
+}*/
+.homepage1 {
+  margin-top: 16%;
+  text-shadow: 7px 5px 7px red;
+}
+.homepage1 h1,
+.homepage1 h2 {
+  color: white;
+}
+@media (max-width: 320px) {
+  #background-video1 {
+    display: none; /* Hide the video on smaller screens */
+  }
+}
+
+/***************************/
+
+.body {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.body::-webkit-scrollbar {
+  display: none;
+}
+.overallnavbar {
+  border-radius: 10px;
+  margin-top: 0.81%;
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
+  background-color: 0;
+  backdrop-filter: blur(2.5px);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  color: white;
+}
+.overallnavbar p {
+  margin-bottom: 0%;
+  color: white;
+  font-weight: 900;
+  font-size: 35px;
+  text-shadow: 7px 5px 7px red;
+}
+.overallnavbar p:hover {
+  transform: scale(1.5); /* Adjust the scale factor as needed */
+}
+#collapsible-nav-dropdown title {
+  color: white;
+}
+.overallform {
+  margin: 1%;
+  background-color: white;
+  padding: 2%;
+  backdrop-filter: blur(10px);
+  color: black;
+}
+.overallform h1 {
+  color: black;
+}
+.overallform2 {
+  margin: 2%;
+  padding: 2%;
+  color: white;
+}
+.overallform2 h1 {
+  color: white;
+}
+.flexinput {
+  display: flex;
+}
+
+.flexinput input,
+select,
+textarea {
+  height: 30%;
+  width: 18%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.flexinput h4 {
+  margin-top: 1%;
+}
+
+.Sign {
+  display: flex;
+}
+
+.Sign label {
+  margin-left: auto;
+}
+
+.Signp2 h4 {
+  margin: 0%;
+}
+
+.flexinput2 {
+  display: flex;
+}
+
+.flexinput2 input,
+select,
+textarea {
+  height: 40%;
+  width: auto;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.flexinput2 input {
+  background-color: #080710;
+  height: 140px;
+}
+.flexinput2 h4 {
+  margin-top: 1%;
+}
+
+@media screen and (max-width: 2200px) {
+  .overallform label {
+    font-size: 18px;
+  }
+  .flexinputn1 h4 {
+    font-size: 30px;
+  }
+}
+
+.homepage {
+  margin-top: 0.31%;
+  height: 700px;
+  /* background-image: url(C:\spreact\pr1\web31\public\img\sssk.jpg);*/
+  background-repeat: no-repeat;
+  background-size: 95% 60%;
+  margin: 1% 5% 0% 7%;
+}
+.homepage1 h1 {
+  margin-top: -14%;
+}
+.homepage1 h2 {
+  margin-top: 2%;
+}
+/***********student form**********/
+
+/*************updatestd***********/
+
+.flexinputn1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5%;
+  justify-content: space-around;
+}
+.flexinputn1 h4 {
+  font-size: 21px;
+  font-weight: 570;
+  flex-grow: 1;
+  margin: auto;
+}
+.flexinputn1 input,
+textarea {
+  margin: 0% 2% 0% 2%;
+  flex-grow: 1;
+  width: 7%;
+  height: 20%;
+}
+.flexinputn1 select {
+  margin: 0% 2% 0% 2%;
+  flex-grow: 1;
+  height: 25px;
+}
+
+.content1 {
+  margin: 3% 5% 3% 5%;
+  max-height: 270px;
+  overflow-y: scroll; /* Always show the scrollbar */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  font-size: 25px;
+}
+/********table*************/
+.content {
+  margin: 3% 5% 3% 5%;
+  max-height: 400px;
+  overflow-y: scroll; /* Always show the scrollbar */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  font-size: 25px;
+  background: 0;
+  backdrop-filter: blur(10px);
+  /*
+  background-color: 0;
+  backdrop-filter: blur(7px);*/
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.content::-webkit-scrollbar {
+  display: none;
+}
+#content {
+  margin: -3% 5% 3% 5%;
+  max-height: 400px;
+  overflow-y: scroll; /* Always show the scrollbar */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+#content::-webkit-scrollbar {
+  display: none;
+}
+/************* search **********/
+.searchbar {
+  width: 100%;
+  text-decoration: 0;
+  border: 0;
+  border-bottom: 1.5px solid black;
+  margin-bottom: 2%;
+}
+/*********filterstudent***********/
+.filterstudent {
+  margin: 2% 5% 2% 5%;
+  color: white;
+}
+/*************info******************/
+.bginfo {
+  padding: 5%;
+  border: 1px solid black;
+  /* background-image: linear-gradient(147deg, #c1fcd3 0%, #0ccda3 74%);*/
+  height: 91vh;
+}
+.infouseradmin {
+  margin: 5% 3% 5% 15%;
+  border-radius: 4%;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  border-left: 12px double white;
+  border-right: 12px double white;
+  min-height: 50vh;
+  font-family: "Fira Sans", sans-serif;
+  color: #fff;
+  font-size: 20px;
+}
+.useradmin {
+  flex-grow: 1;
+  margin: 2% 3% 2% -5%;
+  width: 150px;
+  max-width: 600px;
+  border-radius: 10px;
+  border: 1px solid white;
+  border-left: 9px double white;
+  border-right: 3px solid white;
+  background-color: 0;
+  backdrop-filter: blur(8px);
+  font-size: 22px;
+  /*background-color: #0f0710; text-shadow: 10px 5px 3px #e4ff37;*/
+  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+  padding: 25px;
+  height: 400px;
+  transition: all 0.3s;
+  color: white;
+  text-align: center;
+  @media screen and (min-width: 320px) and (max-width: 860px) {
+    margin: -5% 3% 2% 2%;
+    font-size: 18px;
+  }
+}
+
+.useradmin h1 {
+  margin-top: 4%;
+}
+.useradmin label {
+  margin: 8% 0% 0% 0%;
+}
+.navbarcontent {
+  width: 200px;
+  max-width: 700px;
+  margin: 3% 3% 2% 1%;
+  flex-grow: 1;
+  /*border: 1px solid black;*/
+}
+.user {
+  margin-top: 4%;
+  overflow: scroll;
+  width: 100%;
+}
+.userstdcont h3 {
+  justify-content: center;
+  margin-top: 27%;
+  margin-left: 8%;
+}
+/**********login *****************/
+*,
+*:before,
+*:after {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content2 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+.logininerr {
+  margin-top: 0.2%;
+  width: auto;
+  /* border: 1px solid black; height: 753px; padding: 3% 0% 3% 0%;*/
+  max-height: 100%;
+}
+.nform {
+  height: 520px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(2.5px);
+  border: 1px solid whitesmoke; /*rgba(255, 255, 255, 0.1)*/
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+  margin-top: 5%;
+}
+.nform * {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+.nform h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.nform label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.nform input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: 0;
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  color: black;
+}
+.nform input placeholder {
+  color: #000000;
+}
+::placeholder {
+  color: black;
+}
+.nform button {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+} /*
+.social {
+  margin-top: 30px;
+  display: flex;
+}
+.social div {
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255, 255, 255, 0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover {
+  background-color: rgba(255, 255, 255, 0.47);
+}
+.social .fb {
+  margin-left: 25px;
+  background-color: white;
+}
+.social i {
+  margin-right: 4px;
+  background-color: white;
+}*/
+@media screen and (min-width: 320px) and (max-width: 860px) {
+  .nform {
+    width: 330px;
+  }
+}
+/***********update*********/
+
+.nform1 {
+  height: 640px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 53%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+}
+.nform1 * {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+.nform1 h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.nform1 label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.nform1 input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+::placeholder {
+  color: #e5e5e5;
+}
+.nform1 button {
+  margin: 20px 0px 10px 0px;
+  width: 45%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 860px) {
+  .nform1 {
+    width: 330px;
+  }
+}
+/*********** student table*********/
+.custom-table123 {
+  margin: 1% 5% 1% 5%;
+}
+.Showtable123 {
+  width: 80%;
+  margin-left: 10%;
+  overflow: scroll;
+}
+.Showtable {
+  width: 90%;
+  margin: 0% 5% 0% 5%;
+  /*border: solid 2px blue;*/
+  overflow: scroll;
+  max-height: 500px;
+}
+.Showtable1 {
+  align-items: center;
+  margin: 3% 5% 2% 5%;
+}
+.Showtable2 {
+  align-items: center;
+  margin: 3% 13% 2% 13%;
+  color: black;
+}
+.Showtable2 select {
+  width: 100%;
+  height: 25px;
+}
+.custom-table {
+  border-collapse: collapse;
+  width: 100%;
+  background: 0;
+  backdrop-filter: blur(10px);
+}
+.custom-table th,
+.custom-table td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
+  color: white;
+  font-size: 20px;
+}
+table {
+  border: 1px solid white;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 15px;
+}
+
+.custom-table12 {
+  border-collapse: collapse;
+  width: 100%;
+}
+.custom-table12 th,
+.custom-table12 td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
+  color: black;
+  font-size: 20px;
+}
+/************/
+.branchdesign {
+  display: flex;
+}
+.branchdesign1,
+.branchdesign2 {
+  width: 50%;
+  height: 10%;
+}
+.branchdesign h4 {
+  margin-top: 1.5%;
+}
+.selectall {
+  margin: 1.5% 0% 1.5% 0%;
+}
+.buttonflex {
+  display: flex;
+  justify-content: center;
+}
+.buttonflex Button {
+  margin-left: 8%;
+  width: 30%;
+}
+/**********checkboxfiled**********/
+.checkboxfiled {
+  /*border: 1px solid black;*/
+  padding: 1%;
+  width: 100%;
+  margin-top: 2%;
+}
+.checkboxfiled input {
+  margin: 2%;
+  color: #e4ff37;
+  width: 15%;
+}
+.checkboxfiled label {
+  color: #e4ff37;
+  font-size: 20px;
+}

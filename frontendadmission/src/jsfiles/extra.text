@@ -1,0 +1,345 @@
+lonin
+<div className="logininerr">
+        <div class="background">
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+        <form class="nform" onSubmit={handleAdmin}>
+          <h3>Login Here</h3>
+
+          <label for="username">Username</label>
+          <input
+            placeholder="Email or Phone"
+            id="username"
+            type="text"
+            required
+            value={Username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+
+          <label for="password">Password</label>
+          <input
+            placeholder="Password"
+            id="password"
+            type="password"
+            required
+            value={Password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="onSubmit">Log In</button>
+        </form>
+      </div>
+      
+.background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.background .shape {
+  margin-top: 10%;
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.shape:first-child {
+  background: linear-gradient(#1845ad, #23a2f6);
+  left: -80px;
+  top: -75px;
+}
+.shape:last-child {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  right: -40px;
+  bottom: -80px;
+}
+
+
+import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { useState, useEffect, useNavigation } from "react";
+import Button from "react-bootstrap/Button";
+import "../css/index.css";
+import axios from "axios";
+import Navbar from "./Navbar.js";
+import v2 from "../video/f0.mp4";
+const InfoAdmin = (props) => {
+  const { state: initialUserState } = useLocation();
+  const [userData, setUserData] = useState(initialUserState);
+  useEffect(() => {
+    setUserData(initialUserState);
+  }, [initialUserState]);
+  const {
+    Username,
+    Password,
+    AdminDepartment,
+    AdminContactNo,
+    admin,
+    teacher,
+    UserContactNo,
+    UserDepartment,
+  } = userData;
+  const [User, setUsers] = useState([]);
+  const [isPending, setIsPending] = useState();
+  const history = useHistory();
+  const [CountInfo, setCountInfo] = useState([]);
+  const [CountInfo2, setCountInfo2] = useState([]);
+  const [Count, setCount] = useState(0);
+  const [Countform, setCountform] = useState("");
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/getCount", {
+        params: {
+          username: Username, // Assuming Username is a prop
+        },
+      })
+      .then((res) => {
+        setCountInfo(res.data);
+      })
+      .catch((err) => {
+        console.log("client", err);
+      });
+  }, [Username]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/getCount", {
+        params: {
+          username: Countform, // Assuming Username is a prop
+        },
+      })
+      .then((res) => {
+        setCountInfo2(res.data);
+      })
+      .catch((err) => {
+        console.log("client", err);
+      });
+  }, [Countform]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/getAllUsers")
+      .then((result) => setUsers(result.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const DeleteUser = (id) => {
+    axios
+      .delete("http://localhost:5000/DeleteUsers/" + id)
+      .then((result) => {
+        console.log(result);
+        // Remove the deleted student from the state
+        setUsers(User.filter((user) => user._id !== id));
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <div className="infoadminuser">
+      <div>
+        <video autoPlay loop muted className="video-background">
+          <source src={v2} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="content-overlay">
+          <div className="bginfo">
+            <div className="infouseradmin">
+              <div className="useradmin">
+                <center>
+                  <h1>Wellcome&#160;&#160;{admin}</h1>
+                </center>
+                {admin ? (
+                  <div>
+                    <label>{admin} Name:&#160;&#160;</label>
+                    {Username}
+                    <br></br>
+                    <label>{admin} Password:</label>&#160;&#160;{Password}
+                    <br></br>
+                    <label>Department </label>&#160;:&#160;{AdminDepartment}
+                    <br></br>
+                    <label>Contact No</label>&#160;:&#160;{AdminContactNo}
+                    <br></br>
+                  </div>
+                ) : (
+                  <div>
+                    <label>
+                      {teacher} Name&#160;:&#160;{Username}
+                    </label>
+                    <br></br>
+                    <label>{teacher} Password</label>&#160;:&#160;{Password}
+                    <br></br>
+                    <label>Department </label>&#160;:&#160;{UserDepartment}
+                    <br></br>
+                    <label>Contact No</label>&#160;:&#160;{UserContactNo}
+                    <br></br>
+                  </div>
+                )}
+              </div>
+              <div className="navbarcontent">
+                {admin ? (
+                  <>
+                    <div>
+                      <Navbar
+                        navname="adminlogin"
+                        Username={Username}
+                        AdminDepartment={AdminDepartment}
+                      />
+                    </div>
+                    <div className="toptable">
+                      <div className="container">
+                        <div className="content">
+                          <table className="custom-table">
+                            <thead>
+                              <tr>
+                                <th>TeacherUsername</th>
+                                <th>TeacherPassword</th>
+                                <th>TeacherDepartment</th>
+                                <th>TeacherContactNo</th>
+                                <th>count</th>
+                                <th>Action</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {User.map((User) => (
+                                <tr key={User._id}>
+                                  <td>{User.UserUsername}</td>
+                                  <td>{User.UserPassword}</td>
+                                  <td>{User.UserDepartment}</td>
+                                  <td>{User.UserContactNo}</td>
+                                  <td>count</td>
+                                  <td>
+                                    <NavLink to={`/UpdateUser/${User._id}`}>
+                                      <Button variant="outline-primary">
+                                        Update
+                                      </Button>
+                                    </NavLink>
+                                  </td>
+                                  <td>
+                                    <Button
+                                      variant="outline-primary"
+                                      onClick={(e) => DeleteUser(User._id)}
+                                    >
+                                      Delete
+                                    </Button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="userstdcont">
+                    <Navbar
+                      navname="teacherlogin"
+                      Username={Username}
+                      UserDepartment={UserDepartment}
+                    />
+                    <h3 style={{ marginLeft: 50, marginTop: 120 }}>
+                      Teacher total submited form is {CountInfo.length}
+                    </h3>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default InfoAdmin;
+
+.infouseradmin {
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+    color: white;
+  backdrop-filter: blur(2.5px);}
+
+   backdrop-filter: blur(2.5px);
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+
+
+   /* const textFields = {
+      ApplicationID: e.target.ApplicationID.value.trim(),
+      Domicile: e.target.Domicile.value.trim(),
+      District: e.target.District.value.trim(),
+      NameofCandidate: e.target.NameofCandidate.value.trim(),
+      FNameofCandidate: e.target.FNameofCandidate.value.trim(),
+      MNameofCandidate: e.target.MNameofCandidate.value.trim(),
+      Address: e.target.Address.value.trim(),
+      MobileNo: e.target.MobileNo.value.trim(),
+      Religion: e.target.Religion.value.trim(),
+      Caste: e.target.Caste.value.trim(),
+      MeritNo: e.target.MeritNo.value.trim(),
+      Tel: e.target.Tel.value.trim(),
+      Year: e.target.Year.value.trim(),
+      sdateBirth: e.target.sdateBirth.value.trim(),
+      sdateBirthPlace: e.target.sdateBirthPlace.value.trim(),
+      LastSchool: e.target.LastSchool.value.trim(),
+      ParentsIncome: e.target.ParentsIncome.value.trim(),
+      EducationFacility: e.target.EducationFacility.value.trim(),
+      EMailid: e.target.EMailid.value.trim(),
+      SODOMrMiss: e.target.SODOMrMiss.value.trim(),
+      Deponent: e.target.Deponent.value.trim(),
+      Lfrom: e.target.Lfrom.value.trim(),
+      Payfee: e.target.Payfee.value.trim(),
+      // Add other text fields similarly
+    };
+    const selectFields = {
+      Category: e.target.Category.value,
+      ReservedCategory: e.target.ReservedCategory.value,
+      Gender: e.target.Gender.value,
+      WhetherEBC: e.target.WhetherEBC.value,
+      HandicapType: e.target.HandicapType.value,
+      DefenceType: e.target.DefenceType.value,
+      HSCMCVCPassedITIPassed: e.target.HSCMCVCPassedITIPassed.value,
+      HSCScienceHSCVocationalPassed:
+        e.target.HSCScienceHSCVocationalPassed.value,
+      Branch: e.target.Branch.value,
+      NCC: e.target.NCC.value,
+      TypeofCandidiate: e.target.TypeofCandidiate.value,
+      MinorityCandidiate: e.target.MinorityCandidiate.value,
+      AllotmentLetter: e.target.AllotmentLetter.value,
+      MarksheetorZFORM: e.target.MarksheetorZFORM.value,
+      SSCMARKSHEET: e.target.SSCMARKSHEET.value,
+      HSCMARKSHEET: e.target.HSCMARKSHEET.value,
+      LEAVINGCERTIFICATE: e.target.LEAVINGCERTIFICATE.value,
+      CASTCERTIFICATE: e.target.CASTCERTIFICATE.value,
+      NONCREMYLAYERCERTIFICATE: e.target.NONCREMYLAYERCERTIFICATE.value,
+      GAPCERTIFICATE: e.target.GAPCERTIFICATE.value,
+      NATIONALITYCERTIFICATE: e.target.NATIONALITYCERTIFICATE.value,
+      DEFENCECERTIFICATE: e.target.DEFENCECERTIFICATE.value,
+      PHYSICALHANDICAPCERTIFICATE: e.target.Category.value,
+      NCCCERTIFICATE: e.target.PHYSICALHANDICAPCERTIFICATE.value,
+      DRAWINGCERTIFICATE: e.target.DRAWINGCERTIFICATE.value,
+      INCOMECERTIFICATE: e.target.INCOMECERTIFICATE.value,
+      IFANYDOCUMENTSREQUIRED: e.target.IFANYDOCUMENTSREQUIRED.value,
+    };
+    let isValid = true;
+    for (const field in textFields) {
+      if (!textFields[field]) {
+        isValid = false;
+        setError(`Please fill out ${field}.`);
+      }
+    }
+
+    // Check select fields for empty values
+    for (const field in selectFields) {
+      if (!selectFields[field]) {
+        isValid = false;
+        setError(`Please select ${field}.`);
+      }
+    }
+
+    if (!isValid) {
+      return; // Exit function if any field is empty
+    }*/
